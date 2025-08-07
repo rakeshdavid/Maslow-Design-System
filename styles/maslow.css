@@ -1,0 +1,383 @@
+@theme {
+    /* ===== MASLOW DESIGN SYSTEM V3.0 - AURORA GRADIENTS ===== */
+
+    /* Core Maslow Colors (25 color palette) */
+    --maslow-teal: 165 45% 65%; /* #6DC4AD - Primary brand */
+    --maslow-teal-v1: 166 41% 62%; /* #73C1AE - Hover state */
+    --maslow-teal-v2: 166 51% 58%; /* #60C3AE - Active state */
+    --maslow-accent-green: 133 79% 50%; /* #2CD552 - Accent */
+
+    --maslow-pink: 327 75% 71%; /* #EE7BB3 - Secondary */
+    --maslow-pink-v: 320 52% 68%; /* #DA85B2 - Pink variant */
+    --maslow-purple-deep: 260 67% 28%; /* #401877 - Deep purple */
+    --maslow-purple-v1: 310 36% 46%; /* #9D4B8E - Purple variant 1 */
+    --maslow-purple-v2: 290 26% 55%; /* #A070A6 - Purple variant 2 */
+    --maslow-purple-v3: 290 29% 55%; /* #A56FA8 - Purple variant 3 */
+
+    --maslow-dark-blue: 220 49% 14%; /* #121D35 - Text/foundation */
+    --maslow-sky-blue: 200 46% 50%; /* #469DBB - Sky accent */
+    --maslow-coral: 14 56% 68%; /* #E19379 - Coral accent */
+    --maslow-gray-dark: 0 0% 20%; /* #333333 - Dark gray */
+    --maslow-gray-mid: 0 0% 65%; /* #A5A5A5 - Mid gray */
+
+    --maslow-silver: 220 24% 92%; /* #E6EAF3 - Light background */
+    --maslow-gray-light: 0 0% 93%; /* #EEEEEE - Light gray */
+    --maslow-white: 0 0% 100%; /* #FFFFFF - Pure white */
+
+    --maslow-warning: 35 87% 56%; /* #F3A326 - Warning */
+    --maslow-warning-v: 34 82% 60%; /* #EBA93D - Warning variant */
+    --maslow-bright-yellow: 57 100% 69%; /* #FFF860 - Bright yellow */
+    --maslow-error: 0 67% 50%; /* #D52C2C - Error */
+
+    /* ===== AURORA GRADIENT SYSTEM ===== */
+    --aurora-angle: 120deg;
+
+    /* Primary Aurora - Main brand gradient */
+    --aurora-primary: linear-gradient(
+        var(--aurora-angle),
+        hsl(var(--maslow-pink)) 0%,
+        hsl(var(--maslow-pink-v)) 15%,
+        hsl(var(--maslow-purple-v2)) 35%,
+        hsl(var(--maslow-purple-v3)) 50%,
+        hsl(var(--maslow-teal)) 70%,
+        hsl(var(--maslow-teal-v2)) 85%,
+        hsl(var(--maslow-accent-green)) 100%
+    );
+
+    /* Secondary Aurora - Cool tones */
+    --aurora-secondary: linear-gradient(
+        135deg,
+        hsl(var(--maslow-purple-deep)) 0%,
+        hsl(var(--maslow-purple-v1)) 25%,
+        hsl(var(--maslow-purple-v2)) 50%,
+        hsl(var(--maslow-sky-blue)) 75%,
+        hsl(var(--maslow-teal)) 100%
+    );
+
+    /* Aurora Mesh - Background overlay effect */
+    --aurora-mesh:
+        radial-gradient(at 27% 37%, hsl(var(--maslow-pink) / 0.8) 0px, transparent 50%),
+        radial-gradient(at 97% 21%, hsl(var(--maslow-teal) / 0.7) 0px, transparent 50%),
+        radial-gradient(at 52% 99%, hsl(var(--maslow-purple-v2) / 0.6) 0px, transparent 50%),
+        radial-gradient(at 10% 29%, hsl(var(--maslow-accent-green) / 0.5) 0px, transparent 50%);
+
+    /* Warm Aurora - For accent elements */
+    --aurora-warm: linear-gradient(
+        45deg,
+        hsl(var(--maslow-coral)) 0%,
+        hsl(var(--maslow-warning)) 30%,
+        hsl(var(--maslow-warning-v)) 60%,
+        hsl(var(--maslow-bright-yellow)) 100%
+    );
+
+    /* ===== GLASSMORPHISM SYSTEM ===== */
+    --glass-blur: 20px;
+    --glass-blur-strong: 40px;
+    --glass-saturate: 180%;
+    --glass-opacity: 0.15;
+    --glass-opacity-strong: 0.25;
+    --glass-border: hsl(var(--maslow-white) / 0.18);
+    --glass-border-dark: hsl(var(--maslow-white) / 0.12);
+
+    /* ===== ANIMATION TIMING ===== */
+    --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+    --ease-in-out-expo: cubic-bezier(0.87, 0, 0.13, 1);
+    --spring-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    /* ===== ANIMATION KEYFRAMES ===== */
+    @keyframes aurora-shift {
+        0%,
+        100% {
+            background-position: 0% 50%;
+            filter: hue-rotate(0deg);
+        }
+        50% {
+            background-position: 100% 50%;
+            filter: hue-rotate(30deg);
+        }
+    }
+
+    @keyframes gradient-x {
+        0%,
+        100% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+    }
+
+    @keyframes gradient-y {
+        0%,
+        100% {
+            background-position: 50% 0%;
+        }
+        50% {
+            background-position: 50% 100%;
+        }
+    }
+
+    @keyframes pulse-glow {
+        0%,
+        100% {
+            opacity: 1;
+        }
+        50% {
+            opacity: 0.6;
+        }
+    }
+
+    @keyframes float {
+        0%,
+        100% {
+            transform: translateY(0px);
+        }
+        50% {
+            transform: translateY(-10px);
+        }
+    }
+
+    @keyframes shimmer {
+        0% {
+            transform: translateX(-100%);
+        }
+        100% {
+            transform: translateX(100%);
+        }
+    }
+
+    @keyframes morph {
+        0%,
+        100% {
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+        }
+        50% {
+            border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+        }
+    }
+
+    /* ===== UTILITY CLASSES ===== */
+
+    /* Aurora Backgrounds */
+    --color-aurora-primary: var(--aurora-primary);
+    --color-aurora-secondary: var(--aurora-secondary);
+    --color-aurora-mesh: var(--aurora-mesh);
+    --color-aurora-warm: var(--aurora-warm);
+
+    /* Maslow Brand Colors */
+    --color-maslow-teal: hsl(var(--maslow-teal));
+    --color-maslow-teal-v1: hsl(var(--maslow-teal-v1));
+    --color-maslow-teal-v2: hsl(var(--maslow-teal-v2));
+    --color-maslow-accent-green: hsl(var(--maslow-accent-green));
+    --color-maslow-pink: hsl(var(--maslow-pink));
+    --color-maslow-pink-v: hsl(var(--maslow-pink-v));
+    --color-maslow-purple-deep: hsl(var(--maslow-purple-deep));
+    --color-maslow-purple-v1: hsl(var(--maslow-purple-v1));
+    --color-maslow-purple-v2: hsl(var(--maslow-purple-v2));
+    --color-maslow-purple-v3: hsl(var(--maslow-purple-v3));
+    --color-maslow-dark-blue: hsl(var(--maslow-dark-blue));
+    --color-maslow-sky-blue: hsl(var(--maslow-sky-blue));
+    --color-maslow-coral: hsl(var(--maslow-coral));
+    --color-maslow-silver: hsl(var(--maslow-silver));
+    --color-maslow-warning: hsl(var(--maslow-warning));
+    --color-maslow-error: hsl(var(--maslow-error));
+
+    /* Animation Classes */
+    --animate-aurora-shift: aurora-shift 8s ease-in-out infinite;
+    --animate-gradient-x: gradient-x 15s ease infinite;
+    --animate-gradient-y: gradient-y 15s ease infinite;
+    --animate-pulse-glow: pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    --animate-float: float 6s ease-in-out infinite;
+    --animate-shimmer: shimmer 2s linear infinite;
+    --animate-morph: morph 8s ease-in-out infinite;
+}
+
+@layer base {
+    /* ===== DARK MODE ADJUSTMENTS ===== */
+    .dark-mode {
+        /* Enhanced aurora gradients for dark mode */
+        --aurora-primary: linear-gradient(
+            var(--aurora-angle),
+            hsl(327 85% 63%) 0%,
+            hsl(320 62% 58%) 15%,
+            hsl(290 36% 45%) 35%,
+            hsl(290 39% 45%) 50%,
+            hsl(165 55% 55%) 70%,
+            hsl(166 61% 48%) 85%,
+            hsl(133 89% 40%) 100%
+        );
+
+        --aurora-secondary: linear-gradient(
+            135deg,
+            hsl(260 77% 35%) 0%,
+            hsl(310 46% 40%) 25%,
+            hsl(290 36% 45%) 50%,
+            hsl(200 56% 40%) 75%,
+            hsl(165 55% 55%) 100%
+        );
+
+        /* Stronger glass effects in dark mode */
+        --glass-blur: 40px;
+        --glass-opacity: 0.25;
+        --glass-border: hsl(var(--maslow-white) / 0.12);
+
+        /* Enhanced mesh for dark mode */
+        --aurora-mesh:
+            radial-gradient(at 27% 37%, hsl(var(--maslow-pink) / 0.6) 0px, transparent 50%),
+            radial-gradient(at 97% 21%, hsl(var(--maslow-teal) / 0.5) 0px, transparent 50%),
+            radial-gradient(at 52% 99%, hsl(var(--maslow-purple-v2) / 0.4) 0px, transparent 50%),
+            radial-gradient(at 10% 29%, hsl(var(--maslow-accent-green) / 0.3) 0px, transparent 50%);
+    }
+}
+
+@layer utilities {
+    /* ===== AURORA UTILITY CLASSES ===== */
+
+    .bg-aurora-primary {
+        background: var(--aurora-primary);
+        background-size: 200% 200%;
+    }
+
+    .bg-aurora-secondary {
+        background: var(--aurora-secondary);
+        background-size: 200% 200%;
+    }
+
+    .bg-aurora-mesh {
+        background: var(--aurora-mesh);
+    }
+
+    .bg-aurora-warm {
+        background: var(--aurora-warm);
+        background-size: 200% 200%;
+    }
+
+    /* Aurora text gradients */
+    .text-aurora-primary {
+        background: var(--aurora-primary);
+        background-size: 200% auto;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: transparent;
+    }
+
+    .text-aurora-secondary {
+        background: var(--aurora-secondary);
+        background-size: 200% auto;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: transparent;
+    }
+
+    /* ===== GLASSMORPHISM UTILITY CLASSES ===== */
+
+    .glass {
+        background: linear-gradient(135deg, rgba(255, 255, 255, var(--glass-opacity)) 0%, rgba(255, 255, 255, calc(var(--glass-opacity) * 0.5)) 100%);
+        backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+        -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+        border: 1px solid var(--glass-border);
+    }
+
+    .glass-strong {
+        background: linear-gradient(
+            135deg,
+            rgba(255, 255, 255, var(--glass-opacity-strong)) 0%,
+            rgba(255, 255, 255, calc(var(--glass-opacity-strong) * 0.6)) 100%
+        );
+        backdrop-filter: blur(var(--glass-blur-strong)) saturate(var(--glass-saturate));
+        -webkit-backdrop-filter: blur(var(--glass-blur-strong)) saturate(var(--glass-saturate));
+        border: 1px solid var(--glass-border);
+    }
+
+    .glass-card {
+        @apply glass rounded-2xl shadow-[0_8px_32px_rgba(109,196,173,0.15)];
+        position: relative;
+    }
+
+    .glass-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        background: var(--aurora-mesh);
+        opacity: 0.1;
+        pointer-events: none;
+    }
+
+    /* ===== ANIMATION UTILITY CLASSES ===== */
+
+    .animate-aurora-shift {
+        animation: var(--animate-aurora-shift);
+    }
+
+    .animate-gradient-x {
+        animation: var(--animate-gradient-x);
+    }
+
+    .animate-gradient-y {
+        animation: var(--animate-gradient-y);
+    }
+
+    .animate-pulse-glow {
+        animation: var(--animate-pulse-glow);
+    }
+
+    .animate-float {
+        animation: var(--animate-float);
+    }
+
+    .animate-shimmer {
+        animation: var(--animate-shimmer);
+    }
+
+    .animate-morph {
+        animation: var(--animate-morph);
+    }
+
+    /* ===== SPECIAL EFFECTS ===== */
+
+    .aurora-glow {
+        filter: drop-shadow(0 0 20px rgba(109, 196, 173, 0.3));
+    }
+
+    .aurora-glow-strong {
+        filter: drop-shadow(0 0 40px rgba(109, 196, 173, 0.5));
+    }
+
+    /* 3D Transform Utilities */
+    .preserve-3d {
+        transform-style: preserve-3d;
+    }
+
+    .perspective-1000 {
+        perspective: 1000px;
+    }
+
+    .backface-hidden {
+        backface-visibility: hidden;
+    }
+
+    /* GPU Acceleration */
+    .gpu-accelerated {
+        transform: translateZ(0);
+        will-change: transform, opacity;
+        backface-visibility: hidden;
+    }
+
+    /* Reduced Motion Support */
+    @media (prefers-reduced-motion: reduce) {
+        .animate-aurora-shift,
+        .animate-gradient-x,
+        .animate-gradient-y,
+        .animate-pulse-glow,
+        .animate-float,
+        .animate-shimmer,
+        .animate-morph {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            animation-delay: -0.01ms !important;
+        }
+    }
+}
