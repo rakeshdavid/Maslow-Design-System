@@ -3,6 +3,7 @@
 ## Overall Architecture Strategy
 
 ### Integration Approach: **Additive Architecture**
+
 The Maslow Design System v3.0 integration follows an **additive architecture pattern** - we preserve the entire existing Untitled UI React component library while adding Maslow-branded variants alongside.
 
 ```
@@ -14,7 +15,7 @@ Existing Untitled UI Components (Unchanged)
 
 New Maslow Components (Added)
 ├── /components/maslow/aurora/aurora-button.tsx    # Extends base/Button
-├── /components/maslow/glass/glass-card.tsx        # Extends ui/Card  
+├── /components/maslow/glass/glass-card.tsx        # Extends ui/Card
 ├── /components/maslow/3d/aurora-background.tsx    # New WebGL component
 └── ... (new Maslow variants)
 ```
@@ -22,6 +23,7 @@ New Maslow Components (Added)
 ### Key Architectural Decisions
 
 #### 1. Component Extension Pattern
+
 ```typescript
 // Pattern: Extend existing components rather than replace
 import { Button, type ButtonProps } from "@/components/base/buttons/button";
@@ -46,6 +48,7 @@ export const AuroraButton = forwardRef<HTMLButtonElement, AuroraButtonProps>(
 ```
 
 **Benefits:**
+
 - Zero breaking changes to existing code
 - Maintains API compatibility
 - Preserves existing functionality
@@ -59,7 +62,7 @@ export const AuroraButton = forwardRef<HTMLButtonElement, AuroraButtonProps>(
     /* Maslow color palette as CSS custom properties */
     --maslow-teal: 165 45% 65%;
     --aurora-primary: linear-gradient(...);
-    
+
     /* Utility class definitions */
     --color-aurora-primary: var(--aurora-primary);
 }
@@ -69,15 +72,16 @@ export const AuroraButton = forwardRef<HTMLButtonElement, AuroraButtonProps>(
         background: var(--aurora-primary);
         background-size: 200% 200%;
     }
-    
+
     .glass {
-        background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.075) 100%);
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.075) 100%);
         backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
     }
 }
 ```
 
 **Benefits:**
+
 - Dynamic theming via CSS variables
 - Tailwind CSS v4.1 @theme directive support
 - Easy dark mode implementation
@@ -86,14 +90,15 @@ export const AuroraButton = forwardRef<HTMLButtonElement, AuroraButtonProps>(
 ## Directory Structure
 
 ### Project Organization
+
 ```
 /Users/kesh/Documents/Github -Local/react/
 ├── .claude/                      # Claude Code context management
-│   ├── CLAUDE.md                 # Main project context  
+│   ├── CLAUDE.md                 # Main project context
 │   └── CLAUDE.local.md           # Local development notes
 ├── context/                      # Project specifications
 │   ├── requirements.md           # What we're building
-│   ├── design.md                # How it looks/works  
+│   ├── design.md                # How it looks/works
 │   ├── tech-stack.md            # Technology decisions
 │   ├── architecture.md          # This file
 │   └── task-list.md             # Breakdown of work
@@ -104,7 +109,7 @@ export const AuroraButton = forwardRef<HTMLButtonElement, AuroraButtonProps>(
 │       ├── aurora/              # Aurora gradient components
 │       │   ├── aurora-button.tsx
 │       │   └── aurora-button.story.tsx
-│       ├── glass/               # Glassmorphism components  
+│       ├── glass/               # Glassmorphism components
 │       │   ├── glass-card.tsx
 │       │   └── glass-card.story.tsx
 │       ├── 3d/                  # WebGL/Three.js components
@@ -115,7 +120,7 @@ export const AuroraButton = forwardRef<HTMLButtonElement, AuroraButtonProps>(
 ├── hooks/
 │   ├── maslow/                  # Maslow-specific hooks
 │   │   ├── use-aurora.ts        # Aurora background controls
-│   │   └── use-reduced-motion.ts # Accessibility support  
+│   │   └── use-reduced-motion.ts # Accessibility support
 │   └── ... (existing hooks)
 ├── utils/
 │   ├── maslow/                  # Maslow utilities
@@ -124,7 +129,7 @@ export const AuroraButton = forwardRef<HTMLButtonElement, AuroraButtonProps>(
 ├── styles/
 │   ├── globals.css              # Base styles + imports
 │   ├── maslow.css               # Complete Maslow design system
-│   ├── theme.css                # Existing theme (unchanged)  
+│   ├── theme.css                # Existing theme (unchanged)
 │   └── typography.css           # Existing typography (unchanged)
 ├── .changelog.md                # Implementation history
 ├── .plan.md                     # Future roadmap + analysis
@@ -134,24 +139,28 @@ export const AuroraButton = forwardRef<HTMLButtonElement, AuroraButtonProps>(
 ### Component Architecture Layers
 
 #### Layer 1: Base Components (Existing)
+
 - **Purpose**: Core UI primitives from Untitled UI
 - **Examples**: Button, Card, Input, Dialog
 - **Status**: Completely unchanged, preserved as-is
 - **Usage**: Direct imports for non-Maslow use cases
 
 #### Layer 2: Maslow Extensions (New)
+
 - **Purpose**: Maslow-branded variants with aurora/glass effects
 - **Pattern**: Extend Layer 1 components with additional props
 - **Examples**: AuroraButton extends Button, GlassCard extends Card
 - **Usage**: Import for Maslow-branded interfaces
 
 #### Layer 3: Pure Maslow Components (New)
+
 - **Purpose**: Components unique to Maslow (no base equivalent)
 - **Examples**: AuroraBackground (WebGL), Typography (gradient text)
 - **Pattern**: Built from scratch following Maslow guidelines
 - **Usage**: Maslow-specific functionality
 
 #### Layer 4: Composition Components (Future)
+
 - **Purpose**: Pre-composed templates and sections
 - **Examples**: AuroraHero, AI Chat Interface
 - **Pattern**: Combine multiple Layer 2/3 components
@@ -160,6 +169,7 @@ export const AuroraButton = forwardRef<HTMLButtonElement, AuroraButtonProps>(
 ## Data Flow & State Management
 
 ### Component State Architecture
+
 ```typescript
 // Local component state for UI interactions
 const [isHovered, setIsHovered] = useState(false);
@@ -176,11 +186,13 @@ const { auroraIntensity, setAuroraIntensity } = useAurora();
 ```
 
 ### No Global State Management
+
 - **Decision**: No Redux/Zustand required for current scope
 - **Rationale**: Components are self-contained with local state only
 - **Future**: Can be added if complex cross-component state needed
 
 ### Animation State Management
+
 ```typescript
 // Framer Motion handles animation state internally
 <motion.div
@@ -203,6 +215,7 @@ function AuroraMesh() {
 ## Performance Architecture
 
 ### Bundle Splitting Strategy
+
 ```typescript
 // Lazy loading for heavy 3D components
 const AuroraBackground = lazy(() => import('@/components/maslow/3d/aurora-background'));
@@ -215,12 +228,14 @@ const ThreeJSComponents = dynamic(() => import('./three-components'), {
 ```
 
 ### Animation Performance
+
 - **GPU Acceleration**: All animations use transform/opacity only
 - **RAF Optimization**: RequestAnimationFrame for smooth 60fps
 - **Will-Change**: Strategic use of will-change property
 - **Reduced Motion**: Comprehensive accessibility support
 
 ### Memory Management
+
 ```typescript
 // Three.js cleanup
 useEffect(() => {
@@ -239,6 +254,7 @@ useEffect(() => {
 ## Integration Patterns
 
 ### Existing Component Integration
+
 ```typescript
 // Existing component usage (unchanged)
 import { Button } from "@/components/base/buttons/button";
@@ -256,39 +272,48 @@ import { AuroraButton } from "@/components/maslow/aurora/aurora-button";
 ```
 
 ### CSS Integration Pattern
+
 ```css
 /* Existing Untitled UI styles (unchanged) */
-.btn-primary { background: blue; }
+.btn-primary {
+    background: blue;
+}
 
 /* New Maslow utilities (additive) */
-.bg-aurora-primary { background: var(--aurora-primary); }
-.glass { backdrop-filter: blur(20px); }
+.bg-aurora-primary {
+    background: var(--aurora-primary);
+}
+.glass {
+    backdrop-filter: blur(20px);
+}
 
 /* No conflicts - different class names */
 ```
 
 ### Storybook Integration
+
 ```typescript
 // Existing Untitled UI stories (unchanged)
 export default {
     title: "UI/Button",
-    component: Button
+    component: Button,
 };
 
-// New Maslow stories (separate namespace)  
+// New Maslow stories (separate namespace)
 export default {
     title: "Maslow/Aurora/AuroraButton",
-    component: AuroraButton
+    component: AuroraButton,
 };
 ```
 
 ## Scalability Architecture
 
 ### Horizontal Scaling (More Components)
+
 ```
 Current: 3 Maslow components implemented
 ├── AuroraButton
-├── GlassCard  
+├── GlassCard
 └── AuroraBackground
 
 Future: 12+ components planned
@@ -300,17 +325,19 @@ Future: 12+ components planned
 ```
 
 ### Vertical Scaling (Enhanced Features)
+
 - **Animation Complexity**: From simple hover to complex 3D interactions
 - **Accessibility**: From basic to WCAG 2.1 AA compliance
 - **Performance**: From functional to optimized (60fps, <1.5s load)
 - **Theming**: From static to dynamic (real-time theme switching)
 
 ### Code Organization Scaling
+
 ```typescript
 // Current simple structure
 /components/maslow/aurora/aurora-button.tsx
 
-// Future complex structure  
+// Future complex structure
 /components/maslow/
 ├── aurora/
 │   ├── buttons/
@@ -328,6 +355,7 @@ Future: 12+ components planned
 ## Error Handling Architecture
 
 ### Component Error Boundaries
+
 ```typescript
 // Error boundary for 3D components
 class WebGLErrorBoundary extends Component {
@@ -337,7 +365,7 @@ class WebGLErrorBoundary extends Component {
             this.setState({ hasWebGLError: true });
         }
     }
-    
+
     render() {
         if (this.state.hasWebGLError) {
             return <div className="bg-aurora-primary h-full" />;
@@ -348,6 +376,7 @@ class WebGLErrorBoundary extends Component {
 ```
 
 ### Graceful Degradation
+
 ```typescript
 // Feature detection for advanced effects
 const supportsBackdropFilter = CSS.supports('backdrop-filter', 'blur(1px)');
@@ -362,13 +391,14 @@ const supportsWebGL = !!window.WebGLRenderingContext;
 ```
 
 ### Runtime Error Recovery
+
 ```typescript
 // Animation fallbacks
 const prefersReducedMotion = useReducedMotion();
 const shouldAnimate = !prefersReducedMotion && supportsAnimations;
 
 // Automatic fallback chain
-<AuroraBackground 
+<AuroraBackground
     fallback={<div className="bg-aurora-primary" />}
     onError={() => setUseWebGL(false)}
 />
@@ -377,16 +407,19 @@ const shouldAnimate = !prefersReducedMotion && supportsAnimations;
 ## Security Architecture
 
 ### XSS Prevention
+
 - **Content Security Policy**: Strict CSP headers in production
 - **Input Sanitization**: All user content sanitized
 - **Safe innerHTML**: No dangerouslySetInnerHTML usage
 
-### Dependency Security  
+### Dependency Security
+
 - **Regular Audits**: npm audit run before each release
 - **Known Vulnerabilities**: Monitor security advisories
 - **Minimal Dependencies**: Only essential packages included
 
 ### WebGL Security
+
 - **Context Validation**: Validate WebGL context before use
 - **Shader Compilation**: Safe shader compilation with error handling
 - **Resource Limits**: Prevent excessive memory usage
@@ -394,6 +427,7 @@ const shouldAnimate = !prefersReducedMotion && supportsAnimations;
 ## Testing Architecture
 
 ### Component Testing Strategy
+
 ```typescript
 // Unit tests for component logic
 describe('AuroraButton', () => {
@@ -401,7 +435,7 @@ describe('AuroraButton', () => {
         render(<AuroraButton variant="primary">Test</AuroraButton>);
         expect(screen.getByRole('button')).toHaveClass('bg-aurora-primary');
     });
-    
+
     it('respects reduced motion preferences', () => {
         mockReducedMotion(true);
         render(<AuroraButton>Test</AuroraButton>);
@@ -411,15 +445,17 @@ describe('AuroraButton', () => {
 ```
 
 ### Visual Regression Testing
-- **Storybook Snapshots**: Screenshot testing for visual consistency  
+
+- **Storybook Snapshots**: Screenshot testing for visual consistency
 - **Cross-Browser Testing**: Automated testing across target browsers
 - **Responsive Testing**: Viewport testing for mobile/desktop
 
 ### Performance Testing
+
 - **Lighthouse CI**: Automated performance audits
-- **Animation Profiling**: 60fps validation for all animations  
+- **Animation Profiling**: 60fps validation for all animations
 - **Bundle Analysis**: Size impact monitoring
 
 ---
 
-*This architecture is designed for maintainability, scalability, and performance while preserving the existing codebase integrity. All architectural decisions prioritize developer experience and end-user performance.*
+_This architecture is designed for maintainability, scalability, and performance while preserving the existing codebase integrity. All architectural decisions prioritize developer experience and end-user performance._

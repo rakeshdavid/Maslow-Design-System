@@ -1,0 +1,59 @@
+{
+    "extends": "mcp-universal.json",
+    "mcpServers": {
+        "database": {
+            "command": "npx",
+            "args": ["@mcp/database"],
+            "description": "Database operations, migrations, and query optimization",
+            "usage": "Manage database schemas and perform queries"
+        },
+        "sentry": {
+            "command": "npx",
+            "args": ["@mcp/sentry"],
+            "description": "Error monitoring and debugging integration",
+            "usage": "Track and debug application errors in development"
+        },
+        "postman": {
+            "command": "npx",
+            "args": ["@mcp/postman"],
+            "description": "API testing and documentation",
+            "usage": "Generate and test API endpoints"
+        },
+        "docker": {
+            "command": "npx",
+            "args": ["@mcp/docker"],
+            "description": "Container management and deployment",
+            "usage": "Build, test, and deploy containerized applications"
+        }
+    },
+    "configurations": {
+        "database": {
+            "permissions": ["database_access", "schema_management"],
+            "autoInstall": true,
+            "priority": "high",
+            "requirements": ["database_url"]
+        },
+        "sentry": {
+            "permissions": ["error_reporting", "performance_monitoring"],
+            "autoInstall": false,
+            "priority": "medium",
+            "requirements": ["sentry_dsn"]
+        },
+        "postman": {
+            "permissions": ["network", "file_system"],
+            "autoInstall": true,
+            "priority": "medium"
+        },
+        "docker": {
+            "permissions": ["container_management", "file_system"],
+            "autoInstall": true,
+            "priority": "high"
+        }
+    },
+    "metadata": {
+        "name": "Backend MCP Configuration",
+        "description": "MCPs optimized for backend development workflows",
+        "version": "1.0.0",
+        "compatibility": ["node", "python", "go", "rust", "java", "php"]
+    }
+}

@@ -1,0 +1,47 @@
+{
+    "extends": "mcp-universal.json",
+    "mcpServers": {
+        "figma": {
+            "command": "npx",
+            "args": ["@mcp/figma"],
+            "description": "Design system integration and asset management",
+            "usage": "Connect designs with component development"
+        },
+        "storybook": {
+            "command": "npx",
+            "args": ["@mcp/storybook"],
+            "description": "Component development and testing integration",
+            "usage": "Automate story creation and component documentation"
+        },
+        "lighthouse": {
+            "command": "npx",
+            "args": ["@mcp/lighthouse"],
+            "description": "Performance and accessibility auditing",
+            "usage": "Automated quality checks for web applications"
+        }
+    },
+    "configurations": {
+        "figma": {
+            "permissions": ["design_files", "assets"],
+            "autoInstall": false,
+            "priority": "medium",
+            "requirements": ["figma_token"]
+        },
+        "storybook": {
+            "permissions": ["file_system"],
+            "autoInstall": true,
+            "priority": "high"
+        },
+        "lighthouse": {
+            "permissions": ["network", "file_system"],
+            "autoInstall": true,
+            "priority": "medium"
+        }
+    },
+    "metadata": {
+        "name": "Frontend MCP Configuration",
+        "description": "MCPs optimized for frontend development workflows",
+        "version": "1.0.0",
+        "compatibility": ["react", "vue", "angular", "svelte", "next", "nuxt"]
+    }
+}

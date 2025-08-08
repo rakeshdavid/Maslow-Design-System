@@ -130,28 +130,56 @@ Components follow a consistent pattern:
 **Current Project Status**: ~70% complete integration of Maslow Design System v3.0
 
 ### Key Integration Points
+
 - **Additive Architecture**: Maslow components extend existing Untitled UI components without breaking changes
 - **Component Locations**: All Maslow components in `/components/maslow/` directory
 - **Styling System**: Complete 25-color Maslow palette in `/styles/maslow.css`
 - **Dependencies**: Framer Motion, Three.js, GSAP installed with `--legacy-peer-deps`
 
 ### Context Files
+
 For detailed project context, see:
+
 - **Project Context**: `.claude/CLAUDE.md` (main context file)
-- **Implementation History**: `.changelog.md` (completed phases 1-10)  
+- **Implementation History**: `.changelog.md` (completed phases 1-10)
 - **Future Roadmap**: `.plan.md` (remaining phases 11-15)
 - **Specifications**: `/context/` directory (requirements, design, tech stack, architecture)
 - **Infrastructure**: `/infrastructure/` directory (deployment context)
 
 ### Next Priority
+
 **Phase 11: Typography Component** - Create Typography component with aurora gradient text support
 
 ### Maslow Development Constraints
+
 - **NEVER create new color values** - only use the approved 25-color palette
 - **NEVER use flat colors for primary actions** - must use gradients
 - **ALWAYS use predefined gradients**: `bg-aurora-primary`, `bg-aurora-secondary`
 - **ALWAYS include glassmorphism** on floating elements
 - **ALWAYS add motion** to interactive elements
+
+## Development Workflow & Contextual Help
+
+### Project-Specific Guidance
+
+- Provide contextual suggestions based on current development task:
+    - Component development → Suggest Storybook workflows and file creation patterns
+    - Git operations → Recommend worktree usage for parallel development
+    - PR creation → Reference GitHub App integration and automation opportunities
+    - Bug fixes → Suggest hotfix worktree setup and testing strategies
+
+### Maslow Development Focus
+
+- Working in `/components/maslow/` → Remind about Maslow design constraints and required files (.demo.tsx, .story.tsx)
+- Aurora/glassmorphism implementation → Reference Maslow color palette and design guidelines
+- Component creation → Suggest following existing patterns in the component library
+
+### Contextual Suggestion Triggers
+
+- Working in `/components/maslow/` → Remind about Maslow design constraints and required files (.demo.tsx, .story.tsx)
+- Git branch operations → Suggest worktree alternatives for parallel work
+- Before commits → Remind to run `npm run test` for quality checks
+- PR reviews → Surface accessibility and design system compliance checks
 
 ## Important Instructions
 

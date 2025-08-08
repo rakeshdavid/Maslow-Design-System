@@ -1,0 +1,54 @@
+{
+    "name": "React Genesis Template",
+    "description": "Optimized structure for React/Next.js frontend projects",
+    "extends": "universal-template.json",
+    "structure": {
+        "components/": {
+            "ui/": "Reusable UI components",
+            "features/": "Feature-specific components",
+            "layouts/": "Page and section layouts"
+        },
+        "hooks/": "Custom React hooks",
+        "utils/": "Utility functions and helpers",
+        "styles/": "Global styles and theme configuration",
+        "public/": "Static assets and public files",
+        "tests/": {
+            "components/": "Component tests",
+            "e2e/": "End-to-end tests with Playwright",
+            "utils/": "Testing utilities and helpers"
+        },
+        ".storybook/": "Storybook configuration for component development"
+    },
+    "additionalCommands": ["component.md", "test.md", "storybook.md", "build.md"],
+    "recommendedMCPs": ["github", "playwright", "figma", "storybook"],
+    "developmentServer": {
+        "primary": "npm run dev",
+        "alternatives": ["yarn dev", "pnpm dev"],
+        "storybook": "npm run storybook",
+        "testing": "npm run test:watch"
+    },
+    "qualityGates": ["eslint", "typescript", "prettier", "jest", "playwright"],
+    "stackSpecific": {
+        "packageManager": "npm",
+        "bundler": "vite",
+        "framework": "react",
+        "testing": "jest + playwright",
+        "styling": "tailwindcss",
+        "deployment": "vercel"
+    },
+    "contextTemplates": {
+        "tech-stack.md": {
+            "primary": "React 18+",
+            "bundler": "Vite",
+            "styling": "Tailwind CSS",
+            "testing": "Jest + Playwright",
+            "deployment": "Vercel"
+        },
+        "architecture.md": {
+            "pattern": "Component-based architecture",
+            "stateManagement": "React Context + Hooks",
+            "routing": "React Router",
+            "dataFetching": "React Query/SWR"
+        }
+    }
+}

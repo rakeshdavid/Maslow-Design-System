@@ -1,0 +1,34 @@
+{
+    "mcpServers": {
+        "github": {
+            "command": "npx",
+            "args": ["@mcp/github"],
+            "description": "GitHub repository operations, PR management, issue tracking",
+            "usage": "Essential for all projects using Git/GitHub workflow"
+        },
+        "playwright": {
+            "command": "npx",
+            "args": ["@mcp/playwright"],
+            "description": "End-to-end testing and UI automation",
+            "usage": "Universal testing tool for web applications"
+        }
+    },
+    "configurations": {
+        "github": {
+            "permissions": ["repo", "issues", "pull_requests"],
+            "autoInstall": true,
+            "priority": "high"
+        },
+        "playwright": {
+            "permissions": ["file_system", "network"],
+            "autoInstall": true,
+            "priority": "high"
+        }
+    },
+    "metadata": {
+        "name": "Universal MCP Configuration",
+        "description": "Standard MCPs that benefit all project types",
+        "version": "1.0.0",
+        "compatibility": ["all"]
+    }
+}

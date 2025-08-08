@@ -1,0 +1,72 @@
+{
+    "extends": "mcp-universal.json",
+    "mcpServers": {
+        "terraform": {
+            "command": "npx",
+            "args": ["@mcp/terraform"],
+            "description": "Infrastructure as Code management and deployment",
+            "usage": "Manage cloud infrastructure with Terraform"
+        },
+        "kubernetes": {
+            "command": "npx",
+            "args": ["@mcp/kubernetes"],
+            "description": "Kubernetes cluster management and deployment",
+            "usage": "Deploy and manage applications on Kubernetes"
+        },
+        "aws": {
+            "command": "npx",
+            "args": ["@mcp/aws"],
+            "description": "AWS cloud services integration",
+            "usage": "Manage AWS resources and deployments"
+        },
+        "cloudflare": {
+            "command": "npx",
+            "args": ["@mcp/cloudflare"],
+            "description": "CDN, DNS, and security configuration",
+            "usage": "Manage Cloudflare services and configurations"
+        },
+        "monitoring": {
+            "command": "npx",
+            "args": ["@mcp/monitoring"],
+            "description": "Application and infrastructure monitoring",
+            "usage": "Set up alerts, dashboards, and observability"
+        }
+    },
+    "configurations": {
+        "terraform": {
+            "permissions": ["file_system", "cloud_provider_access"],
+            "autoInstall": true,
+            "priority": "high",
+            "requirements": ["cloud_credentials"]
+        },
+        "kubernetes": {
+            "permissions": ["cluster_access", "deployment_management"],
+            "autoInstall": false,
+            "priority": "high",
+            "requirements": ["kubeconfig"]
+        },
+        "aws": {
+            "permissions": ["aws_access", "resource_management"],
+            "autoInstall": false,
+            "priority": "medium",
+            "requirements": ["aws_credentials"]
+        },
+        "cloudflare": {
+            "permissions": ["dns_management", "cdn_configuration"],
+            "autoInstall": false,
+            "priority": "low",
+            "requirements": ["cloudflare_token"]
+        },
+        "monitoring": {
+            "permissions": ["metrics_access", "alerting"],
+            "autoInstall": true,
+            "priority": "medium"
+        }
+    },
+    "metadata": {
+        "name": "Infrastructure MCP Configuration",
+        "description": "MCPs for infrastructure management and DevOps workflows",
+        "version": "1.0.0",
+        "compatibility": ["terraform", "kubernetes", "docker", "aws", "gcp", "azure"]
+    }
+}

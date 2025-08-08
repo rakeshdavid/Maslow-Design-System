@@ -1,0 +1,63 @@
+{
+    "name": "Python Genesis Template",
+    "description": "Optimized structure for Python backend projects",
+    "extends": "universal-template.json",
+    "structure": {
+        "app/": {
+            "api/": "API endpoints and routers",
+            "core/": "Core application logic and configuration",
+            "models/": "Database models and schemas",
+            "services/": "Business logic services",
+            "utils/": "Utility functions and helpers",
+            "dependencies.py": "Dependency injection container"
+        },
+        "tests/": {
+            "unit/": "Unit tests for services and utilities",
+            "integration/": "API integration tests",
+            "fixtures/": "Test data and fixtures",
+            "conftest.py": "Pytest configuration and fixtures"
+        },
+        "alembic/": "Database migration files (if using Alembic)",
+        "scripts/": "Development and deployment scripts",
+        "requirements/": {
+            "base.txt": "Base dependencies",
+            "dev.txt": "Development dependencies",
+            "prod.txt": "Production dependencies"
+        }
+    },
+    "additionalCommands": ["fastapi.md", "database-py.md", "test-py.md", "deploy-py.md"],
+    "recommendedMCPs": ["github", "playwright", "database", "sentry"],
+    "developmentServer": {
+        "primary": "uvicorn app.main:app --reload",
+        "alternatives": ["python -m app.main", "gunicorn app.main:app"],
+        "debug": "uvicorn app.main:app --reload --log-level debug",
+        "testing": "pytest --watch"
+    },
+    "qualityGates": ["black", "isort", "flake8", "mypy", "pytest"],
+    "stackSpecific": {
+        "version": "python 3.11+",
+        "framework": "fastapi",
+        "database": "postgresql",
+        "orm": "sqlalchemy",
+        "testing": "pytest",
+        "deployment": "docker + k8s"
+    },
+    "contextTemplates": {
+        "tech-stack.md": {
+            "version": "Python 3.11+",
+            "framework": "FastAPI",
+            "database": "PostgreSQL",
+            "orm": "SQLAlchemy",
+            "migrations": "Alembic",
+            "testing": "Pytest",
+            "deployment": "Docker + Kubernetes"
+        },
+        "architecture.md": {
+            "pattern": "Layered Architecture",
+            "apiDesign": "RESTful APIs with OpenAPI",
+            "authentication": "JWT with OAuth2",
+            "database": "Relational with migrations",
+            "async": "AsyncIO for concurrent processing"
+        }
+    }
+}

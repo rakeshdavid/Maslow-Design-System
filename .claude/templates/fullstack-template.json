@@ -1,0 +1,71 @@
+{
+    "name": "Full-Stack Genesis Template",
+    "description": "Comprehensive structure for full-stack applications",
+    "extends": "universal-template.json",
+    "structure": {
+        "frontend/": {
+            "components/": "React/Vue components",
+            "pages/": "Application pages/routes",
+            "hooks/": "Custom hooks (React) or composables (Vue)",
+            "utils/": "Frontend utilities",
+            "styles/": "Styling and themes",
+            "public/": "Static assets"
+        },
+        "backend/": {
+            "api/": "API endpoints and controllers",
+            "services/": "Business logic services",
+            "models/": "Database models",
+            "middleware/": "Server middleware",
+            "config/": "Server configuration"
+        },
+        "shared/": {
+            "types/": "TypeScript type definitions",
+            "utils/": "Shared utility functions",
+            "constants/": "Shared constants"
+        },
+        "database/": {
+            "migrations/": "Database migration files",
+            "seeds/": "Database seed data",
+            "schemas/": "Database schema definitions"
+        },
+        "tests/": {
+            "frontend/": "Frontend component and unit tests",
+            "backend/": "Backend API and service tests",
+            "e2e/": "End-to-end integration tests",
+            "shared/": "Shared utility tests"
+        }
+    },
+    "additionalCommands": ["fullstack-dev.md", "frontend.md", "backend.md", "database-fullstack.md", "test-fullstack.md", "deploy-fullstack.md"],
+    "recommendedMCPs": ["github", "playwright", "figma", "database", "sentry", "storybook"],
+    "developmentServer": {
+        "frontend": "npm run dev:frontend",
+        "backend": "npm run dev:backend",
+        "fullstack": "npm run dev",
+        "database": "npm run db:dev",
+        "testing": "npm run test:watch"
+    },
+    "qualityGates": ["eslint", "typescript", "prettier", "jest", "playwright", "backend-specific-linting"],
+    "stackSpecific": {
+        "frontend": "react/vue",
+        "backend": "node.js/python",
+        "database": "postgresql",
+        "deployment": "docker-compose",
+        "monorepo": true
+    },
+    "contextTemplates": {
+        "tech-stack.md": {
+            "frontend": "React 18+ with Vite",
+            "backend": "Node.js/Express or Python/FastAPI",
+            "database": "PostgreSQL with Prisma/SQLAlchemy",
+            "testing": "Jest + Playwright",
+            "deployment": "Docker Compose + Kubernetes"
+        },
+        "architecture.md": {
+            "pattern": "Full-Stack Monorepo",
+            "frontend": "Component-based SPA",
+            "backend": "RESTful API with GraphQL optional",
+            "database": "Relational with migrations",
+            "deployment": "Containerized microservices"
+        }
+    }
+}

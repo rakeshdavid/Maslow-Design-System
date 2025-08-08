@@ -1,0 +1,32 @@
+{
+    "name": "Universal Genesis Template",
+    "description": "Standard project structure for any technology stack",
+    "structure": {
+        ".claude/": {
+            "CLAUDE.md": "Project context and development guidelines",
+            "settings.json": "Project-specific Claude Code settings",
+            "commands/": "Custom slash commands for this project",
+            "hooks/": "Automation hooks for development lifecycle"
+        },
+        "context/": {
+            "requirements.md": "What we're building - functional and non-functional requirements",
+            "design.md": "How it looks and works - UI/UX and user experience design",
+            "tech-stack.md": "Technology decisions and architecture choices",
+            "architecture.md": "System design and component relationships",
+            "task-list.md": "Breakdown of work items and development phases"
+        },
+        "infrastructure/": {
+            "CLAUDE.md": "Infrastructure context and deployment guidelines",
+            "terraform/": "Infrastructure as code (if using Terraform)",
+            "k8s/": "Kubernetes manifests (if using Kubernetes)",
+            "docker/": "Docker configuration and containerization",
+            "vercel/": "Vercel deployment configuration (if using Vercel)"
+        },
+        ".changelog.md": "Track all changes and project evolution",
+        ".plan.md": "Current sprint plan and immediate priorities",
+        ".mcp.json": "Model Context Protocol server configurations"
+    },
+    "defaultCommands": ["genesis-init.md", "genesis-stack.md", "genesis-mcp.md", "genesis-docs.md", "genesis-workflow.md", "dev.md"],
+    "defaultMCPs": ["github", "playwright"],
+    "hooks": ["session-start", "pre-tool-use", "post-tool-use"]
+}

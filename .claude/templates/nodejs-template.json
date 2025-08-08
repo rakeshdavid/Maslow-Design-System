@@ -1,0 +1,60 @@
+{
+    "name": "Node.js Genesis Template",
+    "description": "Optimized structure for Node.js backend projects",
+    "extends": "universal-template.json",
+    "structure": {
+        "src/": {
+            "controllers/": "API endpoint controllers",
+            "services/": "Business logic services",
+            "models/": "Data models and schemas",
+            "middleware/": "Express middleware functions",
+            "routes/": "API route definitions",
+            "utils/": "Utility functions and helpers",
+            "config/": "Configuration files and constants"
+        },
+        "tests/": {
+            "unit/": "Unit tests for services and utilities",
+            "integration/": "API integration tests",
+            "fixtures/": "Test data and fixtures"
+        },
+        "docs/": {
+            "api/": "API documentation",
+            "schemas/": "Database schemas and models"
+        },
+        "scripts/": "Development and deployment scripts",
+        "migrations/": "Database migration files (if applicable)"
+    },
+    "additionalCommands": ["api.md", "database.md", "test-api.md", "deploy-api.md"],
+    "recommendedMCPs": ["github", "playwright", "database", "sentry", "postman"],
+    "developmentServer": {
+        "primary": "npm run dev",
+        "alternatives": ["node --watch server.js", "nodemon server.js"],
+        "debug": "npm run dev:debug",
+        "testing": "npm run test:watch"
+    },
+    "qualityGates": ["eslint", "typescript", "prettier", "jest", "supertest"],
+    "stackSpecific": {
+        "runtime": "node",
+        "framework": "express",
+        "database": "postgresql",
+        "orm": "prisma",
+        "testing": "jest + supertest",
+        "deployment": "docker + k8s"
+    },
+    "contextTemplates": {
+        "tech-stack.md": {
+            "runtime": "Node.js 18+",
+            "framework": "Express.js",
+            "database": "PostgreSQL",
+            "orm": "Prisma",
+            "testing": "Jest + Supertest",
+            "deployment": "Docker + Kubernetes"
+        },
+        "architecture.md": {
+            "pattern": "MVC Architecture",
+            "apiDesign": "RESTful APIs",
+            "authentication": "JWT",
+            "database": "Relational with migrations"
+        }
+    }
+}
