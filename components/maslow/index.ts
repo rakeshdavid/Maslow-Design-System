@@ -4,6 +4,9 @@ export { AuroraButton, type AuroraButtonProps } from "./aurora/aurora-button";
 // Glass Components
 export { GlassCard, type GlassCardProps } from "./glass/glass-card";
 
+// UI Components
+export { Typography, type TypographyProps } from "./ui/typography";
+
 // 3D Components
 export { AuroraBackground, type AuroraBackgroundProps } from "./3d/aurora-background";
 
